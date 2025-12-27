@@ -1,0 +1,19 @@
+/* Fuente Fredoka importada directamente aquí para asegurar carga */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* Configuración base para asegurar que el fondo y texto se vean bien por defecto */
+@theme {
+  --font-sans: 'Fredoka', sans-serif;
+  --color-background: #050508;
+  --color-foreground: #f8fafc;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  margin: 0;
+  min-height: 100vh;
+}
