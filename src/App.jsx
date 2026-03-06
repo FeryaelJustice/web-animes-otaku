@@ -102,7 +102,7 @@ export default function App() {
                 color: "from-cyan-400 to-blue-500",
             },
         }),
-        []
+        [],
     );
 
     // --- Efectos ---
@@ -135,8 +135,8 @@ export default function App() {
         try {
             const response = await fetch(
                 `https://api.jikan.moe/v4/anime?q=${encodeURIComponent(
-                    chatInput
-                )}&limit=3&order_by=score&sort=desc`
+                    chatInput,
+                )}&limit=3&order_by=score&sort=desc`,
             );
             const data = await response.json();
 
@@ -155,12 +155,12 @@ export default function App() {
                 setChatResponse(msg);
             } else {
                 setChatResponse(
-                    "Lo siento, no encontré animes que coincidan con eso. Intenta con algo más general."
+                    "Lo siento, no encontré animes que coincidan con eso. Intenta con algo más general.",
                 );
             }
         } catch {
             setChatResponse(
-                "Error de conexión con el servidor. Inténtalo de nuevo."
+                "Error de conexión con el servidor. Inténtalo de nuevo.",
             );
         } finally {
             setIsChatting(false);
@@ -196,7 +196,7 @@ export default function App() {
         while (retries > 0) {
             try {
                 const res = await fetch(
-                    `https://api.jikan.moe/v4/top/anime?filter=${cat}&page=${pg}`
+                    `https://api.jikan.moe/v4/top/anime?filter=${cat}&page=${pg}`,
                 );
                 if (res.status === 429) throw new Error("RATE_LIMIT");
                 if (!res.ok) throw new Error("API_ERROR");
@@ -247,7 +247,7 @@ export default function App() {
         const list = animeData[activeTab] || [];
         if (!searchTerm) return list;
         return list.filter((a) =>
-            a.title.toLowerCase().includes(searchTerm.toLowerCase())
+            a.title.toLowerCase().includes(searchTerm.toLowerCase()),
         );
     }, [animeData, activeTab, searchTerm]);
 
@@ -582,7 +582,8 @@ export default function App() {
                         ANIME HUB
                     </div>
                     <p className="text-[10px] text-slate-600 font-bold uppercase tracking-[0.4em] mb-4">
-                        © 2025 OTAKU SYSTEM • FeryaelJustice
+                        © {new Date().getFullYear()} OTAKU SYSTEM •
+                        FeryaelJustice
                     </p>
                 </div>
             </footer>
