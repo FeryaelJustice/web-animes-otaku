@@ -17,6 +17,9 @@ import {
     Zap,
 } from "lucide-react";
 
+// --- Constantes Globales ---
+const API_BASE_URL = "https://api.jikan.moe/v4";
+
 // --- Formateador de texto ---
 const FormattedText = ({ text }) => {
     if (!text) return null;
@@ -134,7 +137,7 @@ export default function App() {
         setChatResponse("");
         try {
             const response = await fetch(
-                `https://api.jikan.moe/v4/anime?q=${encodeURIComponent(
+                `${API_BASE_URL}/anime?q=${encodeURIComponent(
                     chatInput,
                 )}&limit=3&order_by=score&sort=desc`,
             );
@@ -196,7 +199,7 @@ export default function App() {
         while (retries > 0) {
             try {
                 const res = await fetch(
-                    `https://api.jikan.moe/v4/top/anime?filter=${cat}&page=${pg}`,
+                    `${API_BASE_URL}/top/anime?filter=${cat}&page=${pg}`,
                 );
                 if (res.status === 429) throw new Error("RATE_LIMIT");
                 if (!res.ok) throw new Error("API_ERROR");
