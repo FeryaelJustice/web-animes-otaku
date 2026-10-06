@@ -21,7 +21,7 @@ AnimeDB es una aplicación web interactiva dedicada a los amantes del anime, cre
 - **Lucide React**: Biblioteca de iconos SVG para una interfaz visual atractiva.
 
 ### APIs y Servicios
-- **Jikan API**: API de MyAnimeList para obtener datos de animes, rankings y información detallada.
+- **Jikan API**: API de MyAnimeList para obtener datos de animes, rankings e información detallada.
 - **Web Speech API**: Para la síntesis de voz en las respuestas del chatbot.
 
 ### Herramientas de Desarrollo
